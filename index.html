@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NEURON.Agency — Marketing & Automatyzacje AI dla MŚP</title>
+  <meta name="description" content="Nowoczesna agencja marketingowa AI. Kampanie performance, automatyzacje sprzedaży, chatboty, analityka, strony WWW i branding dla małych i średnich firm." />
+  <meta name="theme-color" content="#0b0b0f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="NEURON.Agency — Marketing & Automatyzacje AI" />
+  <meta property="og:description" content="Ekskluzywna agencja marketingowa AI. Dowozimy wzrost przychodu dzięki automatyzacjom i kampaniom performance." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-image.jpg" />
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+
+  <style>
+    :root{
+      --bg:#0b0b0f;         /* near-black */
+      --bg-soft:#0f0f14;    /* cards */
+      --text:#e8e8ee;       /* primary text */
+      --muted:#acadb9;      /* secondary text */
+      --gold:#d4af37;       /* luxury accent */
+      --gold-2:#c7a133;
+      --stroke:rgba(255,255,255,.08);
+      --shadow:0 10px 30px rgba(0,0,0,.45);
+    }
+    /* Rainbow gradient used across accents */
+    .rainbow{
+      background: conic-gradient(from 180deg at 50% 50%,
+        #ff7a7a, #ffb36b, #ffd56b, #a6ff7a, #6bffe3, #6bbcff, #a06bff, #ff6bf0, #ff7a7a);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 70% -10%, rgba(160,107,255,.15), transparent 60%),
+                  radial-gradient(900px 600px at -10% 10%, rgba(255,123,123,.14), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+
+    /* Layout */
+    .container{width:100%; max-width:1200px; margin:0 auto; padding:0 24px}
+
+    /* Top bar */
+    .nav{position:sticky; top:0; z-index:50; backdrop-filter:saturate(120%) blur(10px); background:rgba(11,11,15,.45); border-bottom:1px solid var(--stroke)}
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:14px}
+    .brand .mark{width:36px; height:36px; border-radius:50%; position:relative; overflow:hidden; box-shadow:0 0 0 2px rgba(212,175,55,.35), inset 0 0 60px rgba(212,175,55,.25)}
+    .brand .mark::before{content:""; position:absolute; inset:2px; border-radius:50%; background:linear-gradient(145deg, rgba(212,175,55,.9), rgba(212,175,55,.55));}
+    .brand strong{font-weight:800; letter-spacing:.4px}
+    .brand span{font-size:12px; color:var(--muted)}
+
+    .nav-links{display:flex; align-items:center; gap:18px}
+    .nav-links a{padding:8px 12px; border-radius:999px; border:1px solid transparent}
+    .nav-links a:hover{border-color:var(--stroke); background:rgba(255,255,255,.03)}
+
+    .btn{display:inline-flex; align-items:center; gap:10px; border-radius:14px; padding:12px 18px; font-weight:600; border:1px solid rgba(212,175,55,.35); background:linear-gradient(180deg, rgba(212,175,55,.2), rgba(212,175,55,.04)); box-shadow:var(--shadow)}
+    .btn .dot{width:8px; height:8px; border-radius:50%; background:var(--gold); box-shadow:0 0 0 3px rgba(212,175,55,.2)}
+    .btn.primary{background:linear-gradient(180deg, rgba(212,175,55,.35), rgba(212,175,55,.12));}
+
+    /* Hero */
+    .hero{position:relative; padding:88px 0 56px; border-bottom:1px solid var(--stroke)}
+    .headline{display:grid; gap:22px; align-items:center; grid-template-columns:1.2fr .8fr}
+    .headline h1{font-family:"Playfair Display", serif; font-size:64px; line-height:1.05; margin:0; letter-spacing:.3px}
+    .headline p{font-size:18px; color:var(--muted); margin:0}
+    .hero-card{border:1px solid var(--stroke); border-radius:22px; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); padding:22px; position:relative; overflow:hidden}
+    .hero-card .glow{position:absolute; inset:-1px; background: radial-gradient(400px 200px at 80% 10%, rgba(255,255,255,.08), transparent 60%)}
+    .stat{display:flex; gap:14px; align-items:center}
+    .stat .badge{font-size:12px; padding:6px 10px; border:1px solid var(--stroke); border-radius:999px; color:var(--muted)}
+    .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px}
+    .kpis .kpi{border:1px solid var(--stroke); border-radius:18px; padding:14px}
+    .kpis .kpi h3{margin:0; font-size:28px}
+    .kpis .kpi span{color:var(--muted); font-size:12px}
+
+    /* Gradient divider */
+    .divider{height:1px; margin:28px 0; background:linear-gradient(90deg, transparent, rgba(212,175,55,.45), transparent)}
+
+    /* Trust */
+    .trust{padding:32px 0}
+    .trust .logos{display:grid; grid-template-columns:repeat(6,1fr); gap:18px; opacity:.85}
+    .trust .logos div{border:1px dashed var(--stroke); border-radius:12px; padding:14px; text-align:center; font-size:14px; color:var(--muted)}
+
+    /* Section base */
+    section{padding:72px 0; position:relative}
+    h2.section-title{font-family:"Playfair Display", serif; font-size:40px; line-height:1.2; margin:0 0 12px}
+    p.section-lead{margin:0 0 28px; color:var(--muted)}
+
+    /* Services grid */
+    .grid{display:grid; gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .card{border:1px solid var(--stroke); border-radius:18px; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); padding:18px; position:relative; overflow:hidden}
+    .card:hover{border-color:rgba(212,175,55,.35)}
+    .card .tag{font-size:12px; color:var(--muted); border:1px solid var(--stroke); padding:6px 10px; border-radius:999px; display:inline-block}
+    .card h3{margin:10px 0 8px; font-size:20px}
+    .card p{margin:0; color:var(--muted)}
+    .card .cta{margin-top:12px}
+
+    /* Accent lines */
+    .accent{position:absolute; inset:auto auto -1px 0; height:3px; width:100%;}
+    .accent.gold{background:linear-gradient(90deg, rgba(212,175,55,.1), rgba(212,175,55,.8), rgba(212,175,55,.1))}
+    .accent.rainbow{background:linear-gradient(90deg, #ff7a7a, #ffb36b, #ffd56b, #a6ff7a, #6bffe3, #6bbcff, #a06bff, #ff6bf0)}
+
+    /* Steps */
+    .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+    .step{border:1px solid var(--stroke); border-radius:18px; padding:18px}
+    .step b{font-size:12px; color:var(--gold)}
+
+    /* Pricing */
+    .pricing{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .price{border:1px solid var(--stroke); border-radius:22px; padding:22px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01))}
+    .price h3{margin:0; font-size:22px}
+    .price .value{font-size:40px; font-weight:800}
+    .price ul{margin:14px 0; padding-left:18px; color:var(--muted)}
+    .price .cta{display:block; text-align:center; margin-top:10px}
+    .price.featured{border-color:rgba(212,175,55,.6); box-shadow:0 0 0 1px rgba(212,175,55,.2), 0 30px 80px rgba(212,175,55,.1)}
+
+    /* Testimonials */
+    .testimonials{display:grid; grid-template-columns:1.2fr .8fr; gap:18px}
+    .quote{border:1px solid var(--stroke); border-radius:18px; padding:18px; font-style:italic}
+
+    /* FAQ */
+    .faq details{border:1px solid var(--stroke); border-radius:14px; padding:14px 18px}
+    .faq summary{cursor:pointer; font-weight:600}
+    .faq details+details{margin-top:10px}
+
+    /* Contact */
+    .contact{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+    .contact form{display:grid; gap:12px}
+    .input{background:rgba(255,255,255,.04); border:1px solid var(--stroke); color:var(--text); padding:12px 14px; border-radius:12px}
+    textarea.input{min-height:140px}
+
+    /* Footer */
+    footer{border-top:1px solid var(--stroke); padding:28px 0; color:var(--muted)}
+
+    /* Rainbow stroke ring */
+    .ring{position:absolute; inset:-1px; border-radius:22px; pointer-events:none; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));}
+    .ring::before{content:""; position:absolute; inset:-1px; border-radius:22px; padding:1px; background:conic-gradient(#ff7a7a, #ffb36b, #ffd56b, #a6ff7a, #6bffe3, #6bbcff, #a06bff, #ff6bf0, #ff7a7a); -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;}
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .headline{grid-template-columns:1fr; gap:28px}
+      .trust .logos{grid-template-columns:repeat(3,1fr)}
+      .steps{grid-template-columns:repeat(2,1fr)}
+      .pricing{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .grid.cols-3{grid-template-columns:1fr}
+    }
+
+    /* Reveal animations */
+    .reveal{opacity:0; transform:translateY(12px); transition:all .6s ease}
+    .reveal.show{opacity:1; transform:none}
+
+    /* Mobile menu */
+    .hamburger{display:none}
+    @media (max-width: 840px){
+      .nav-links{display:none}
+      .hamburger{display:inline-flex; align-items:center; gap:10px}
+      .mobile{display:none; position:absolute; top:60px; left:0; right:0; background:rgba(11,11,15,.98); border-bottom:1px solid var(--stroke)}
+      .mobile a{display:block; padding:14px 24px; border-top:1px solid var(--stroke)}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#">
+        <span class="mark rainbow"></span>
+        <div>
+          <strong>NEURON.Agency</strong><br>
+          <span>Marketing & Automatyzacje AI</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#uslugi">Usługi</a>
+        <a href="#proces">Proces</a>
+        <a href="#case">Case studies</a>
+        <a href="#cennik">Cennik</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontakt" class="btn"><span class="dot"></span> Porozmawiajmy</a>
+      </div>
+      <button aria-label="Otwórz menu" class="btn hamburger" id="menuBtn"><span class="dot"></span>Menu</button>
+    </div>
+    <div class="mobile" id="mobileMenu">
+      <a href="#uslugi">Usługi</a>
+      <a href="#proces">Proces</a>
+      <a href="#case">Case studies</a>
+      <a href="#cennik">Cennik</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero container">
+    <div class="headline">
+      <div class="reveal">
+        <h1>Ekskluzywna agencja <span style="color:var(--gold)">marketingowa AI</span> dla MŚP</h1>
+        <p>Projektujemy i wdrażamy <strong>automatyzacje sprzedaży</strong>, tworzymy <strong>kampanie performance</strong> oraz <strong>chatboty</strong>, które realnie zwiększają przychody. Zero fajerwerków — tylko skalowalny wzrost oparty na danych.</p>
+        <div class="divider"></div>
+        <div class="stat">
+          <span class="badge">Średni wzrost MRR +38%</span>
+          <span class="badge">Średnia redukcja kosztów obsługi −42%</span>
+          <span class="badge">Średni ROAS 4.7x</span>
+        </div>
+        <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap">
+          <a class="btn primary" href="#kontakt"><span class="dot"></span> Darmowa konsultacja 30 min</a>
+          <a class="btn" href="pages/uslugi.html">Zobacz pełną ofertę</a>
+        </div>
+      </div>
+      <div class="hero-card reveal">
+        <div class="glow"></div>
+        <div class="ring"></div>
+        <canvas id="heroChart" width="560" height="320" aria-label="Wykres wzrostu" role="img"></canvas>
+        <p style="color:var(--muted); font-size:12px; margin-top:8px">Symulacja: wpływ automatyzacji lead scoringu i kampanii Performance Max na przychód (3 miesiące)</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- TRUST -->
+  <div class="trust container reveal" aria-label="Zaufali nam">
+    <div class="logos">
+      <div>Allegro Partner</div>
+      <div>HubSpot Solutions</div>
+      <div>Meta Business</div>
+      <div>Google Partner</div>
+      <div>OpenAI Builder</div>
+      <div>Make / Zapier</div>
+    </div>
+  </div>
+
+  <!-- USŁUGI -->
+  <section id="uslugi">
+    <div class="container">
+      <h2 class="section-title reveal">Usługi i produkty</h2>
+      <p class="section-lead reveal">Kompletna oferta dla firm, które chcą rosnąć szybciej z wykorzystaniem AI i automatyzacji.</p>
+
+      <div class="grid cols-3">
+        <!-- AI Marketing Strategy -->
+        <article class="card reveal">
+          <span class="tag">Strategia</span>
+          <h3>AI Marketing Blueprint</h3>
+          <p>Audyt lejka, mapowanie danych, roadmapa wdrożeń AI (90 dni). Priorytety, KPI, estymacje ROI.</p>
+          <div class="accent gold"></div>
+          <div class="cta"><a class="btn" href="pages/ai-blueprint.html">Szczegóły</a></div>
+        </article>
+
+        <!-- Performance Ads -->
+        <article class="card reveal">
+          <span class="tag">Performance</span>
+          <h3>Kampanie Google & Meta</h3>
+          <p>Performance Max, remarketing, feedy produktowe, testy A/B, kreatywy generatywne, dynamiczny budżet.</p>
+          <div class="accent rainbow"></div>
+          <div class="cta"><a class="btn" href="pages/performance.html">Szczegóły</a></div>
+        </article>
+
+        <!-- Automation -->
+        <article class="card reveal">
+          <span class="tag">Automatyzacja</span>
+          <h3>Automatyzacje sprzedaży</h3>
+          <p>Leady → CRM → scoring AI, sekwencje e‑mail/SMS, integracje Allegro/Shopify, faktury, raporty i alerty.</p>
+          <div class="accent gold"></div>
+          <div class="cta"><a class="btn" href="pages/automation.html">Szczegóły</a></div>
+        </article>
+
+        <!-- Chatbots -->
+        <article class="card reveal">
+          <span class="tag">Conversational</span>
+          <h3>Chatboty & asystenci AI</h3>
+          <p>Obsługa 24/7, generowanie leadów, obsługa zwrotów, rezerwacje. Kanały: www, Messenger, WhatsApp.</p>
+          <div class="accent rainbow"></div>
+          <div class="cta"><a class="btn" href="pages/chatboty.html">Szczegóły</a></div>
+        </article>
+
+        <!-- Content -->
+        <article class="card reveal">
+          <span class="tag">Content</span>
+          <h3>Studio treści generatywnych</h3>
+          <p>Video & grafika z AI, personalizacja na dużą skalę, biblioteka kreatywów, guideline’y i prompt inżynieria.</p>
+          <div class="accent gold"></div>
+          <div class="cta"><a class="btn" href="pages/content.html">Szczegóły</a></div>
+        </article>
+
+        <!-- Web Dev -->
+        <article class="card reveal">
+          <span class="tag">WWW</span>
+          <h3>Strony WWW & landing pages</h3>
+          <p>Design premium, szybkość (Core Web Vitals), formularze, analityka, SEO tech, integracje CRM/automation.</p>
+          <div class="accent rainbow"></div>
+          <div class="cta"><a class="btn" href="pages/www.html">Szczegóły</a></div>
+        </article>
+
+        <!-- SEO -->
+        <article class="card reveal">
+          <span class="tag">SEO</span>
+          <h3>SEO zasilane AI</h3>
+          <p>Klastery tematyczne, plan publikacji, generowanie szkiców treści, audyty techniczne, link building.</p>
+          <div class="accent gold"></div>
+          <div class="cta"><a class="btn" href="pages/seo.html">Szczegóły</a></div>
+        </article>
+
+        <!-- E‑mail -->
+        <article class="card reveal">
+          <span class="tag">CRM</span>
+          <h3>E‑mail & marketing automation</h3>
+          <p>Segmentacja predykcyjna, recovery koszyka, nurturing B2B, dynamiczne oferty. HubSpot / Klaviyo.</p>
+          <div class="accent rainbow"></div>
+          <div class="cta"><a class="btn" href="pages/email.html">Szczegóły</a></div>
+        </article>
+
+        <!-- CRO -->
+        <article class="card reveal">
+          <span class="tag">CRO</span>
+          <h3>Optymalizacja konwersji</h3>
+          <p>Heatmapy, testy A/B, AI copy testing, mikrokonwersje, wdrożenia UX, eksperymenty cenowe.</p>
+          <div class="accent gold"></div>
+          <div class="cta"><a class="btn" href="pages/cro.html">Szczegóły</a></div>
+        </article>
+
+        <!-- Szkolenia -->
+        <article class="card reveal">
+          <span class="tag">Szkolenia</span>
+          <h3>Warsztaty AI dla zespołów</h3>
+          <p>Szkolenia on‑site/online, biblioteki promptów, polityka AI, wdrożenia pilotażowe z mierzalnymi KPI.</p>
+          <div class="accent rainbow"></div>
+          <div class="cta"><a class="btn" href="pages/szkolenia.html">Szczegóły</a></div>
+        </article>
+      </div>
+
+      <div style="margin-top:22px; display:flex; gap:12px; flex-wrap:wrap" class="reveal">
+        <a class="btn primary" href="pages/uslugi.html">Zobacz wszystkie usługi</a>
+        <a class="btn" href="#case">Zobacz case studies</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCES -->
+  <section id="proces">
+    <div class="container">
+      <h2 class="section-title reveal">Jak pracujemy</h2>
+      <p class="section-lead reveal">Transparentnie i iteracyjnie. Każdy etap kończymy dowożonym wynikiem.</p>
+
+      <div class="steps">
+        <div class="step reveal"><b>01 • Diagnostyka</b><br>Audyt danych i lejka, analiza kosztów i szans. Definicja KPI.
+          <div class="accent gold"></div>
+        </div>
+        <div class="step reveal"><b>02 • Projekt</b><br>Roadmapa 90‑dniowa: eksperymenty, kanały, automatyzacje.
+          <div class="accent rainbow"></div>
+        </div>
+        <div class="step reveal"><b>03 • Wdrożenie</b><br>Integracje, kampanie, treści, dashboardy w Looker/GA4.
+          <div class="accent gold"></div>
+        </div>
+        <div class="step reveal"><b>04 • Skalowanie</b><br>Optymalizacja, testy A/B, modele atrybucji, rozszerzanie kanałów.
+          <div class="accent rainbow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section id="case">
+    <div class="container">
+      <h2 class="section-title reveal">Case studies</h2>
+      <p class="section-lead reveal">Przykładowe wyniki po 8–12 tygodniach współpracy.</p>
+
+      <div class="grid cols-3">
+        <article class="card reveal">
+          <span class="tag">E‑commerce • Moda</span>
+          <h3>ROAS 6.2x + automatyczny remarketing</h3>
+          <p>Wdrożenie feedu produktowego, PMax, segmentacja klientów, cart recovery. Wzrost przychodu +54%.</p>
+          <div class="accent gold"></div>
+        </article>
+        <article class="card reveal">
+          <span class="tag">B2B • Usługi</span>
+          <h3>Lead gen + chat asystent 24/7</h3>
+          <p>Skoring leadów z AI, sekwencje e‑mail, chatbot na stronie. Czas odpowiedzi ↓ 83%, konwersja leadów +31%.</p>
+          <div class="accent rainbow"></div>
+        </article>
+        <article class="card reveal">
+          <span class="tag">Lokalny • Medycyna</span>
+          <h3>Rezerwacje online + automatyzacja recepcji</h3>
+          <p>WhatsApp bot, przypomnienia wizyt, kampanie lokalne. No‑show ↓ 28%, wypełnienie kalendarza +37%.</p>
+          <div class="accent gold"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CENNIK -->
+  <section id="cennik">
+    <div class="container">
+      <h2 class="section-title reveal">Wycena i pakiety</h2>
+      <p class="section-lead reveal">Elastycznie: od warsztatu startowego, przez sprinty wdrożeniowe, po stałą obsługę.</p>
+
+      <div class="pricing">
+        <div class="price reveal">
+          <h3>Warsztat startowy</h3>
+          <div class="value">2 900 zł</div>
+          <ul>
+            <li>4h warsztat strategiczny (online)</li>
+            <li>Mapa priorytetów + quick wins</li>
+            <li>Lista narzędzi i integracji</li>
+          </ul>
+          <a class="btn cta" href="#kontakt">Zamów</a>
+        </div>
+        <div class="price featured reveal">
+          <h3>Wdrożenie 90 dni</h3>
+          <div class="value">od 9 900 zł</div>
+          <ul>
+            <li>Kampanie performance + automatyzacje</li>
+            <li>Dashboard KPI + testy A/B</li>
+            <li>Wsparcie kreatywne (AI studio)</li>
+          </ul>
+          <a class="btn cta" href="#kontakt">Zamów</a>
+        </div>
+        <div class="price reveal">
+          <h3>Stała obsługa</h3>
+          <div class="value">od 5 900 zł/mc</div>
+          <ul>
+            <li>Plan eksperymentów i rozwój kanałów</li>
+            <li>Raporty tyg./mies. i rekomendacje</li>
+            <li>SLA i opieka techniczna</li>
+          </ul>
+          <a class="btn cta" href="#kontakt">Umów rozmowę</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS + TECH -->
+  <section>
+    <div class="container testimonials">
+      <div class="quote reveal">
+        „W 10 tygodni przebudowali nam kanały pozyskania i wdrożyli automatyczną kwalifikację leadów. Koszt sprzedaży spadł o 39%, a handlowcy skupiają się na właściwych klientach.”<br>
+        <small>— Magdalena, Dyrektor Marketingu (B2B SaaS)</small>
+      </div>
+      <div class="card reveal">
+        <span class="tag">Stack technologiczny</span>
+        <h3>Narzędzia, z którymi pracujemy</h3>
+        <p>GA4, Looker, Google Ads, Meta Ads, Search Console, Tag Manager, HubSpot, Pipedrive, Klaviyo, Make, Zapier, OpenAI, Vertex AI, LangChain, Pinecone, Shopify, WooCommerce, Allegro, Notion.</p>
+        <div class="accent rainbow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG / EDU -->
+  <section>
+    <div class="container">
+      <h2 class="section-title reveal">Wiedza i aktualności</h2>
+      <p class="section-lead reveal">Trendy AI w marketingu, praktyczne poradniki, inspiracje z wdrożeń.</p>
+      <div class="grid cols-3">
+        <article class="card reveal">
+          <span class="tag">Poradnik</span>
+          <h3>Jak zbudować chatbot sprzedażowy w 48h</h3>
+          <p>Od mapy rozmów po wdrożenie na WWW i WhatsApp. Szablony i checklisty.</p>
+          <div class="accent gold"></div>
+        </article>
+        <article class="card reveal">
+          <span class="tag">Trend</span>
+          <h3>Generatywne kreacje: co realnie działa</h3>
+          <p>Case’y z PMax i Meta Advantage+. Jak oceniać wyniki i skalować budżety.</p>
+          <div class="accent rainbow"></div>
+        </article>
+        <article class="card reveal">
+          <span class="tag">Analityka</span>
+          <h3>Model atrybucji w MŚP bez bólu</h3>
+          <p>Praktyczny przewodnik po atrybucji danych i konfiguracji GA4/Looker.</p>
+          <div class="accent gold"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container faq">
+      <h2 class="section-title reveal">Najczęstsze pytania</h2>
+      <details class="reveal">
+        <summary>Jak szybko zobaczymy pierwsze wyniki?</summary>
+        <p>Quick wins pojawiają się zwykle w 2–4 tygodnie (remarketing, optymalizacje), pełny efekt po 8–12 tygodniach (automatyzacje, nowe kanały).</p>
+      </details>
+      <details class="reveal">
+        <summary>Jakie branże obsługujecie?</summary>
+        <p>MŚP: e‑commerce, usługi B2B, edukacja, medycyna, nieruchomości. Pracujemy w PL i UE.</p>
+      </details>
+      <details class="reveal">
+        <summary>Jakie są warunki współpracy?</summary>
+        <p>Start od warsztatu diagnostycznego, następnie sprint 90 dni lub stała obsługa. Umowa, NDA, rozliczenie fakturą.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="kontakt">
+    <div class="container contact">
+      <div class="reveal">
+        <h2 class="section-title">Umów konsultację</h2>
+        <p class="section-lead">Bezpłatna rozmowa 30 min — ocenimy potencjał wzrostu i zaproponujemy plan.</p>
+        <div class="card">
+          <div class="accent rainbow"></div>
+          <p><strong>E‑mail:</strong> hello@neuron.agency<br>
+             <strong>Telefon:</strong> +48 123 456 789<br>
+             <strong>Adres:</strong> ul. Przykładowa 1, 00‑000 Warszawa</p>
+          <p style="color:var(--muted); font-size:12px">Dostępne formy kontaktu: e‑mail, telefon, WhatsApp. Odpowiadamy w dni robocze 9:00–17:00.</p>
+        </div>
+      </div>
+      <form class="reveal" action="https://formspree.io/f/your-id" method="POST">
+        <input class="input" type="text" name="name" placeholder="Imię i nazwisko" required>
+        <input class="input" type="email" name="email" placeholder="E‑mail" required>
+        <input class="input" type="text" name="company" placeholder="Firma (opcjonalnie)">
+        <textarea class="input" name="message" placeholder="Napisz kilka słów o Twoich celach" required></textarea>
+        <button class="btn primary" type="submit"><span class="dot"></span>Wyślij</button>
+        <p style="color:var(--muted); font-size:12px">Wysyłając formularz akceptujesz politykę prywatności.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
+      <div>© <span id="year"></span> NEURON.Agency — Wszystkie prawa zastrzeżone.</div>
+      <div>
+        <a href="pages/polityka-prywatnosci.html">Polityka prywatności</a> •
+        <a href="pages/o-nas.html">O nas</a> •
+        <a href="pages/kariera.html">Kariera</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NEURON.Agency",
+    "url": "https://twoja-domena.github.io/",
+    "logo": "https://twoja-domena.github.io/assets/logo.png",
+    "sameAs": [
+      "https://www.facebook.com/", "https://www.linkedin.com/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+48-123-456-789",
+      "contactType": "sales",
+      "areaServed": "PL",
+      "availableLanguage": ["Polish", "English"]
+    }
+  }
+  </script>
+
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const mobile = document.getElementById('mobileMenu');
+    if(btn){
+      btn.addEventListener('click', ()=>{
+        mobile.style.display = mobile.style.display === 'block' ? 'none' : 'block';
+      })
+    }
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show') })
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+    // Smooth anchor scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id.length > 1){
+          e.preventDefault();
+          document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'});
+          mobile.style.display = 'none';
+        }
+      })
+    });
+
+    // Decorative growth chart in hero (no libs)
+    const c = document.getElementById('heroChart');
+    if(c){
+      const ctx = c.getContext('2d');
+      const w = c.width, h = c.height;
+      // BG
+      ctx.fillStyle = 'rgba(255,255,255,0.04)';
+      ctx.fillRect(0,0,w,h);
+      // Grid
+      ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+      ctx.lineWidth = 1;
+      for(let i=0;i<6;i++){ ctx.beginPath(); ctx.moveTo(0, (h/6)*i); ctx.lineTo(w, (h/6)*i); ctx.stroke(); }
+      for(let i=0;i<8;i++){ ctx.beginPath(); ctx.moveTo((w/8)*i,0); ctx.lineTo((w/8)*i,h); ctx.stroke(); }
+      // Line
+      const pts = [12,18,22,28,36,48,60,72];
+      ctx.beginPath();
+      ctx.lineWidth = 3;
+      const grad = ctx.createLinearGradient(0,0,w,0);
+      const colors = ['#ff7a7a','#ffb36b','#ffd56b','#a6ff7a','#6bffe3','#6bbcff','#a06bff','#ff6bf0'];
+      colors.forEach((col,i)=> grad.addColorStop(i/(colors.length-1), col));
+      ctx.strokeStyle = grad;
+      ctx.moveTo(0, h - pts[0] - 40);
+      for(let i=1;i<pts.length;i++) ctx.lineTo((w/(pts.length-1))*i, h - pts[i] - 40);
+      ctx.stroke();
+      // Glow
+      ctx.fillStyle = 'rgba(255,255,255,0.06)';
+      ctx.beginPath();
+      ctx.moveTo(0, h - pts[0] - 40);
+      for(let i=1;i<pts.length;i++) ctx.lineTo((w/(pts.length-1))*i, h - pts[i] - 40);
+      ctx.lineTo(w,h); ctx.lineTo(0,h); ctx.closePath(); ctx.fill();
+    }
+  </script>
+</body>
+</html>
